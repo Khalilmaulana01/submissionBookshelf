@@ -100,10 +100,10 @@ const editBookByIdhandler = (request, h) => {
 
 	const index = books.filter((book) => book.id === id);
 
-
+if(index !== -1) {
 	if(name === undefined) {
 		const response = h.response({
-			"status": "faiil",
+			"status": "fail",
 			"message": "Gagal memperbaharui buku, Mohon isi nama buku",
 		});
 		response.code(400);
@@ -129,8 +129,9 @@ const editBookByIdhandler = (request, h) => {
 		response.code(404);
 		return response;
 	};
+	
+		const finished = (pageRead === pageCount);
 
-	if(index !== -1) {
 		books[index] = {
 			...books[index],
 			name, 
