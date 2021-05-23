@@ -1,10 +1,10 @@
-const Hapi = require('hapi/hapi');
-const nanoid = require('nanoid');
+const Hapi = require('@hapi/hapi');
+const routes = require('./routes')
 
 const init = async () => {
 	const server = Hapi.server({
-		port: 5000
-		host: 'localhost'
+		port: 5000,
+		host: 'localhost',
 		
 	});
 
