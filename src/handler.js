@@ -121,15 +121,6 @@ if(index !== -1) {
 		return response;
 	};
 
-	if(id === undefined) {
-		const response = h.response({
-			"status": "fail",
-			"message": "gagal memperbaharui buku, Id tidak ditemukan",
-		});
-		response.code(404);
-		return response;
-	};
-	
 		const finished = (pageRead === pageCount);
 
 		books[index] = {
@@ -141,6 +132,7 @@ if(index !== -1) {
 			publisher,
 			pageCount,
 			readPage, 
+			finished,
 			reading, 
 			updatedAt
 		}
@@ -151,6 +143,13 @@ if(index !== -1) {
 		response.code(200);
 		return response;
 	}
+
+	const response = h.response({
+		"status": "fail",
+		"message": "Gagal memperbaharui buku, Id Tidak ditemukan"
+	});
+	response.code(404);
+	return response;
 
 };
 
