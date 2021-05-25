@@ -10,7 +10,7 @@ const addBookHandler = (request, h) => {
 	const insertedAt = new Date().toISOString();
 	const updatedAt = insertedAt;
 	const newBooks = {
-		id, name, year, author, summary, publisher, pageCount, readPage, finished, insertedAt, updatedAt
+		id, name, year, author, summary, publisher, pageCount, readPage, finished, reading, insertedAt, updatedAt
 	}
 
 	books.push(newBooks);
@@ -60,11 +60,14 @@ const addBookHandler = (request, h) => {
 //TODO 2 --> getAllBooksHandler
 const getAllBooksHandler = (request, h) => {
 
-	const {id, name, publisher} = request.params;
 	const response = h.response({
 		status: "success",
 		data: {
-			books,
+			books: books.map((book) => ({
+				id: book.id,
+				name: book.name,
+				publisher: book.publisher,
+			})),
 		},
 	});
 	response.code(200);
