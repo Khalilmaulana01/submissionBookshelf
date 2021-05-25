@@ -10,7 +10,7 @@ const addBookHandler = (request, h) => {
 	const insertedAt = new Date().toISOString();
 	const updatedAt = insertedAt;
 	const newBooks = {
-		name, year, author, summary, publisher, pageCount, readPage, finished, insertedAt, updatedAt
+		id, name, year, author, summary, publisher, pageCount, readPage, finished, insertedAt, updatedAt
 	}
 
 	books.push(newBooks);
