@@ -149,13 +149,13 @@ if(index !== -1) {
 	if(readPage > pageCount) {
 		const response = h.response({
 			status: 'fail',
-			message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar daripada pageCount',
+			message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
 		});
 		response.code(400);
 		return response;
 	};
 
-		const finished = (pageRead === pageCount);
+		const finished = (readPage === pageCount);
 
 		books[index] = {
 			...books[index],
@@ -180,7 +180,7 @@ if(index !== -1) {
 
 	const response = h.response({
 		status: 'fail',
-		message: 'Gagal memperbarui buku. Id Tidak ditemukan',
+		message: 'Gagal memperbarui buku. Id tidak ditemukan',
 	});
 	response.code(404);
 	return response;
