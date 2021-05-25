@@ -140,18 +140,16 @@ if(index !== -1) {
 	if(name === undefined) {
 		const response = h.response({
 			status: 'fail',
-			message: 'Gagal memperbaharui buku. Mohon isi nama buku',
+			message: 'Gagal memperbarui buku. Mohon isi nama buku',
 		});
 		response.code(400);
 		return response;
-		
-
 	};
 	
 	if(readPage > pageCount) {
 		const response = h.response({
 			status: 'fail',
-			message: 'Gagal memperbaharui buku. readPage tidak boleh lebih besar daripada pageCount',
+			message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar daripada pageCount',
 		});
 		response.code(400);
 		return response;
@@ -182,7 +180,7 @@ if(index !== -1) {
 
 	const response = h.response({
 		status: 'fail',
-		message: 'Gagal memperbaharui buku. Id Tidak ditemukan'
+		message: 'Gagal memperbarui buku. Id Tidak ditemukan'
 	});
 	response.code(404);
 	return response;
