@@ -58,7 +58,12 @@ const addBookHandler = (request, h) => {
 };
 
 //TODO 2 --> getAllBooksHandler
-const getAllBooksHandler = () => ({
+const getAllBooksHandler = (request, h) => {
+//	const {name, reading, finished} = request.query;
+//	if(!name && !reading && !finished) {
+//
+//	}
+	const response = h.response({
 		status: 'success',
 		data: {
 			books: books.map((book) => ({
@@ -66,8 +71,12 @@ const getAllBooksHandler = () => ({
 				name: book.name,
 				publisher: book.publisher,
 			})),
+			
 		},
-}); 
+	})	
+	response.code(200);
+	return response;
+}; 
 
 
 //TODO 3 --> getBookByIdHandler
