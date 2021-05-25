@@ -29,7 +29,7 @@ const addBookHandler = (request, h) => {
 	if(readPage > pageCount) {
 		const response = h.response({
 			status: 'fail',
-			message: 'Gagal menambahkan buku, readPage tidak boleh lebih besar dari pageCount',
+			message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
 		})
 		response.code(400);
 		return response;
@@ -137,7 +137,7 @@ if(index !== -1) {
 	if(name === undefined) {
 		const response = h.response({
 			status: "fail",
-			message: "Gagal memperbaharui buku, Mohon isi nama buku",
+			message: "Gagal memperbaharui buku. Mohon isi nama buku",
 		});
 		response.code(400);
 		return response;
@@ -148,7 +148,7 @@ if(index !== -1) {
 	if(readPage > pageCount) {
 		const response = h.response({
 			status: "fail",
-			message: "Gagal memperbaharui buku, readPage tidak boleh lebih besar daripada pageCount",
+			message: "Gagal memperbaharui buku. readPage tidak boleh lebih besar daripada pageCount",
 		});
 		response.code(400);
 		return response;
@@ -179,7 +179,7 @@ if(index !== -1) {
 
 	const response = h.response({
 		status: "fail",
-		message: "Gagal memperbaharui buku, Id Tidak ditemukan"
+		message: "Gagal memperbaharui buku. Id Tidak ditemukan"
 	});
 	response.code(404);
 	return response;
@@ -205,7 +205,7 @@ const deleteByIdHandler = (request, h) => {
 	
 	const response = h.response({
 		status: "fail",
-		message: "Buku gagal dihapus, Id tidak ditemukan",
+		message: "Buku gagal dihapus. Id tidak ditemukan",
 	});
 	response.code(404);
 	return response;
