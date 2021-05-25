@@ -58,8 +58,7 @@ const addBookHandler = (request, h) => {
 };
 
 //TODO 2 --> getAllBooksHandler
-const getAllBooksHandler = (request, h) => {
-	const response = h.response({
+const getAllBooksHandler = () => ({
 		status: 'success',
 		data: {
 			books: books.map((book) => ({
@@ -68,10 +67,7 @@ const getAllBooksHandler = (request, h) => {
 				publisher: book.publisher,
 			})),
 		},
-	});
-	response.code(200);
-	return response; 
-}; 
+}); 
 
 
 //TODO 3 --> getBookByIdHandler
