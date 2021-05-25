@@ -59,29 +59,26 @@ const addBookHandler = (request, h) => {
 
 //TODO 2 --> getAllBooksHandler
 const getAllBooksHandler = (request, h) => {
-
-
-
 	const {name, reading, finished} = request.query;
 
-	let filteredBooks = books;
+	let searching = books;
 
 	 if (name !== undefined) {
-    		filteredBooks = filteredBooks.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
+    		searching = searching.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
   	};
 
 	if(reading !== undefined) {
-		filteredBooks = filteredBooks.filter((book) => book.reading === !!Number(reading))
+		filteredBooks = searching.filter((book) => book.reading === reading)
 	};
 
 	if(finished !== undefined) {
-		filteredBooks = filteredBooks.filter((book) => book.finished === !!Number(finished))
+		searching = searching.filter((book) => book.finished === finished)
 	};
 
 	const response = h.response({
 		status: 'success',
 		data: {
-			books: filteredBooks.map((book) => ({
+			books: searching.map((book) => ({
 				id: book.id,
 				name: book.name,
 				publisher: book.publisher,
