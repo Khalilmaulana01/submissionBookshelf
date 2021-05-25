@@ -1,4 +1,4 @@
-onst {nanoid} = require('nanoid');
+const {nanoid} = require('nanoid');
 const books = require('./books');
 
 //TODO 1 --> addBookHandler
@@ -17,8 +17,8 @@ const addBookHandler = (request, h) => {
 
 	if(name === undefined) {
 		const response = h.response({
-			status : "fail",
-			message: "Gagal menambahkan buku. Mohon isi nama buku"
+			status : 'fail',
+			message: 'Gagal menambahkan buku. Mohon isi nama buku',
 
 		})
 		response.code(400)
