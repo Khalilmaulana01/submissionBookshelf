@@ -61,7 +61,7 @@ const addBookHandler = (request, h) => {
 const getAllBooksHandler = (request, h) => {
 
 	const response = h.response({
-		status: "success",
+		status: 'success',
 		data: {
 			books: books.map((book) => ({
 				id: book.id,
@@ -90,7 +90,7 @@ const getAllBooksHandler = (request, h) => {
 	};
 
 	const response = h.response({
-		status: "success",
+		status: 'success',
 		data: {
 			books: filteredBooks,
 			name: book.name,
@@ -110,7 +110,7 @@ const getBookByIdHandler = (request, h) => {
 
 	if(book !== undefined) {
 		return {
-			status: "success",
+			status: 'success',
 			data: {
 				book,
 			},
@@ -119,8 +119,8 @@ const getBookByIdHandler = (request, h) => {
 
 
 	const response = h.response({
-		status: "fail",
-		message: "Buku tidak ditemukan",
+		status: 'fail',
+		message: 'Buku tidak ditemukan',
 	});
 	response.code(404);
 	return response;
@@ -139,8 +139,8 @@ const editBookByIdhandler = (request, h) => {
 if(index !== -1) {
 	if(name === undefined) {
 		const response = h.response({
-			status: "fail",
-			message: "Gagal memperbaharui buku. Mohon isi nama buku",
+			status: 'fail',
+			message: 'Gagal memperbaharui buku. Mohon isi nama buku',
 		});
 		response.code(400);
 		return response;
@@ -150,8 +150,8 @@ if(index !== -1) {
 	
 	if(readPage > pageCount) {
 		const response = h.response({
-			status: "fail",
-			message: "Gagal memperbaharui buku. readPage tidak boleh lebih besar daripada pageCount",
+			status: 'fail',
+			message: 'Gagal memperbaharui buku. readPage tidak boleh lebih besar daripada pageCount',
 		});
 		response.code(400);
 		return response;
@@ -173,16 +173,16 @@ if(index !== -1) {
 			updatedAt
 		}
 		const response = h.response({
-			status: "success",
-			message: "Buku berhasil diperbaharui",
+			status: 'success',
+			message: 'Buku berhasil diperbaharui',
 		})
 		response.code(200);
 		return response;
 	}
 
 	const response = h.response({
-		status: "fail",
-		message: "Gagal memperbaharui buku. Id Tidak ditemukan"
+		status: 'fail',
+		message: 'Gagal memperbaharui buku. Id Tidak ditemukan'
 	});
 	response.code(404);
 	return response;
@@ -199,16 +199,16 @@ const deleteByIdHandler = (request, h) => {
 		books.splice(index, 1);
 
 		const response = h.response({
-			status: "success",
-			message: "Buku berhasil dihapus",
+			status: 'success',
+			message: 'Buku berhasil dihapus',
 		})
 		response.code(200);
 		return response;
 	}
 	
 	const response = h.response({
-		status: "fail",
-		message: "Buku gagal dihapus. Id tidak ditemukan",
+		status: 'fail',
+		message: 'Buku gagal dihapus. Id tidak ditemukan',
 	});
 	response.code(404);
 	return response;
