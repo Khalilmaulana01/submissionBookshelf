@@ -180,7 +180,7 @@ if(index !== -1) {
 const deleteByIdHandler = (request, h) => {
 	const {id} = request.params;
 
-	const index = books.filter((book) => book.id === id);
+	const index = books.findIndex((book) => book.id === id);
 
 	if(index !== -1) {
 		books.splice(index, 1);
