@@ -180,7 +180,7 @@ if(index !== -1) {
 
 	const response = h.response({
 		status: 'fail',
-		message: 'Gagal memperbarui buku. Id Tidak ditemukan'
+		message: 'Gagal memperbarui buku. Id Tidak ditemukan',
 	});
 	response.code(404);
 	return response;
